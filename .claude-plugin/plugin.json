@@ -6,6 +6,5 @@
     "name": "roto"
   },
   "keywords": ["automation", "todo", "workflow", "refactoring", "korean"],
-  "repository": "https://github.com/rotoshine/claude-jadongsanyang",
-  "postInstallMessage": "✅ 자동사냥 플러그인 설치 완료!\n\n프로젝트에서 사용하려면 '자동사냥 설치'를 실행하세요.\n이 명령어는 CLAUDE.md에 자동사냥 커맨드 매핑을 추가합니다."
+  "repository": "https://github.com/rotoshine/claude-jadongsanyang"
 }
