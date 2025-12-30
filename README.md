@@ -24,7 +24,7 @@ claude plugin install --path ~/roto_workspaces/jadongsanyang
 
 **GitHub에서:**
 ```bash
-claude plugin marketplace add roto/jadongsanyang
+claude plugin marketplace add rotoshine/claude-jadongsanyang
 claude plugin install jadongsanyang
 ```
 
