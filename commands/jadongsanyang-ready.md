@@ -1,5 +1,6 @@
 ---
 description: 자동사냥 Ready (Todo 목록 분석 → 작업 추천)
+allowed-tools: Glob, Read
 ---
 
 # 자동사냥 Ready
@@ -21,6 +22,7 @@ description: 자동사냥 Ready (Todo 목록 분석 → 작업 추천)
 1. `/todos/` 디렉토리의 모든 `.md` 파일 읽기
    - **Glob 도구**로 `todos/**/*.md` 패턴 검색 (하위 폴더 포함)
    - **Read 도구**로 각 파일 내용 읽기
+   - **절대 금지**: `bash(for...)` 루프나 `cat`, `head` 등 bash 명령어 사용 금지 (사용자에게 승인 요청이 발생하여 불편함)
 2. 각 파일에서 추출:
    - 제목 (`# ` 헤더)
    - 상태 (`## 상태` 섹션)
@@ -45,6 +47,7 @@ description: 자동사냥 Ready (Todo 목록 분석 → 작업 추천)
 
 **완료됨 (제외)**
 - `- [x] 완료됨` 또는 `- [x] PR 생성됨`
+- frontmatter에 `completed: true` 또는 `isCompleted: true`
 
 ### 4단계: 우선순위 정렬
 

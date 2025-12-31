@@ -1,5 +1,6 @@
 ---
 description: 자동사냥 Setup (프로젝트에 자동사냥 설정 추가)
+allowed-tools: Glob, Read, Edit, Write, Bash(mkdir:*)
 ---
 
 # 자동사냥 Setup
@@ -48,7 +49,38 @@ mkdir -p todos
 - "자동사냥 시작 accessibility" → 특정 작업 시작
 ```
 
-### 3단계: 결과 출력
+### 3단계: 권한 설정 추가
+
+`.claude/settings.json` 파일에 자동사냥에 필요한 권한을 추가합니다.
+
+#### .claude 디렉토리가 없는 경우
+```bash
+mkdir -p .claude
+```
+
+#### settings.json 처리
+
+1. `.claude/settings.json` 파일 읽기 (없으면 빈 객체 `{}`)
+2. `permissions.allow` 배열에 다음 권한 추가 (중복 제외):
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Glob(todos/**)",
+      "Read(todos/**)",
+      "Write(todos/**)",
+      "Edit(todos/**)",
+      "Bash(git:*)",
+      "Bash(gh:*)"
+    ]
+  }
+}
+```
+
+3. 기존 권한이 있으면 병합 (기존 값 유지, 새 값만 추가)
+
+### 4단계: 결과 출력
 
 설정 완료 후 다음을 표시합니다:
 
@@ -58,6 +90,7 @@ mkdir -p todos
 설정된 항목:
 - /todos/ 디렉토리 생성됨 (또는 이미 존재)
 - CLAUDE.md에 자동사냥 커맨드 매핑 추가됨
+- .claude/settings.json에 권한 설정 추가됨
 
 이제 다음 명령어를 사용할 수 있습니다:
 - "자동사냥 계획" - 코드베이스 분석 → Todo 생성
@@ -68,5 +101,7 @@ mkdir -p todos
 ## 주의사항
 
 - CLAUDE.md 파일을 직접 수정합니다
+- .claude/settings.json 파일을 직접 수정합니다
 - 기존 "자동사냥 커맨드" 섹션이 있으면 중복 추가하지 않습니다
+- 기존 권한 설정은 유지하고 새 권한만 추가합니다
 - 변경 사항은 git에 커밋되지 않습니다 (사용자가 직접 커밋)

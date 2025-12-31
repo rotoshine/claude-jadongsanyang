@@ -116,6 +116,27 @@ High / Medium / Low
 - Todo 파일이 `/todos/[경로]/`에 저장됨
 - 예: `자동사냥 계획 apps/feed` → `/todos/apps/feed/feature-name.md`
 
+## 권한 설정 (선택)
+
+자동사냥 스킬은 `allowed-tools`가 설정되어 있어 대부분의 도구가 자동 승인됩니다.
+
+추가로 프로젝트에 권한을 미리 설정하면 더 원활하게 사용할 수 있습니다:
+
+```json
+// .claude/settings.json
+{
+  "permissions": {
+    "allow": [
+      "Glob(todos/**)",
+      "Read(todos/**)",
+      "Write(todos/**)",
+      "Bash(git:*)",
+      "Bash(gh:*)"
+    ]
+  }
+}
+```
+
 ## 플러그인 관리
 
 ```bash

@@ -1,5 +1,6 @@
 ---
 description: 자동사냥 Start (작업 구현 → PR 생성)
+allowed-tools: Glob, Grep, Read, Edit, Write, Bash(git:*), Bash(gh:*), Bash(npm:*), Bash(yarn:*), Bash(npx:*), TodoWrite
 ---
 
 # 자동사냥 Start
@@ -16,11 +17,13 @@ description: 자동사냥 Start (작업 구현 → PR 생성)
 ### 1단계: 작업 선택
 
 1. `/todos/` 디렉토리의 모든 `.md` 파일 읽기
-   - **Glob 도구**로 `todos/*.md` 패턴 검색
+   - **Glob 도구**로 `todos/**/*.md` 패턴 검색 (하위 폴더 포함)
    - **Read 도구**로 각 파일 내용 읽기
+   - **절대 금지**: `bash(for...)` 루프나 `cat`, `head` 등 bash 명령어 사용 금지 (사용자에게 승인 요청이 발생하여 불편함)
 
 2. **상태 필터링** - 다음 조건의 파일 제외:
    - `## 상태` 섹션에 `[x] 완료됨` 또는 `[x] PR 생성됨`이 있는 파일
+   - frontmatter에 `completed: true` 또는 `isCompleted: true`가 있는 파일
 
 3. **우선순위 정렬**:
    - High → Medium → Low 순서

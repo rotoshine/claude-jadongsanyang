@@ -1,5 +1,6 @@
 ---
 description: 자동사냥 Planning (코드베이스 분석 → Todo 생성)
+allowed-tools: Glob, Grep, Read, Write, Task
 ---
 
 # 자동사냥 Planning
@@ -65,6 +66,7 @@ description: 자동사냥 Planning (코드베이스 분석 → Todo 생성)
 1. `/todos/` 디렉토리의 모든 `.md` 파일 읽기
    - **Glob 도구**로 `todos/**/*.md` 패턴 검색 (하위 폴더 포함)
    - **Read 도구**로 각 파일 내용 읽기
+   - **절대 금지**: `bash(for...)` 루프나 `cat`, `head` 등 bash 명령어 사용 금지 (사용자에게 승인 요청이 발생하여 불편함)
 2. 이미 등록된 개선 항목 목록 파악
 3. 중복 제안 방지
 

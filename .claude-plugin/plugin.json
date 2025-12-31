@@ -1,7 +1,7 @@
 {
   "name": "jadongsanyang",
   "description": "자동화된 코드 개선 워크플로우 플러그인. 코드베이스 분석, Todo 관리, PR 자동 생성을 지원합니다.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "roto"
   },
